@@ -13,7 +13,7 @@ const services = [
         link: "/services/litigation",
     },
     {
-        name: "family law",
+        name: "Family Law",
         description: "We offer compassionate and effective legal services in family law matters, including divorce, child custody, and adoption.",
         icon: "https://img.icons8.com/ios-filled/100/000000/family.png",
         link: "/services/family-law",
@@ -25,13 +25,13 @@ const services = [
         link: "/services/criminal-law",
     },
     {
-        name:"property law",
+        name:"Property Law",
         description: "We offer comprehensive legal services in property law, including real estate transactions, landlord-tenant disputes, and property development.",
         icon: "https://img.icons8.com/ios-filled/100/000000/real-estate.png",
         link: "/services/property-law",
     },
     {
-        name: "employment law",
+        name: "Employment Law",
         description: "Our employment law experts provide guidance and representation in matters such as workplace discrimination, wrongful termination, and employment contracts.",
         icon: "https://img.icons8.com/ios-filled/100/000000/engineering.png",
         link: "/services/employment-law",   

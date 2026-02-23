@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { NavLink } from "react-router-dom";
-import slides from "../data/slides";
+import slides from "../../data/slides";
 
 const Hero = () => {
   const [current, setCurrent] = useState(0);
@@ -22,7 +22,7 @@ const Hero = () => {
   const slide = slides[current];
 
   return (
-    <section className="relative h-[600px] overflow-hidden bg-black rounded-b-3xl">
+    <section className="relative h-[600px] overflow-hidden bg-black rounded-b-3xl font-serif">
       {/* Background Image Slides */}
       {slide.type === "background" && (
         <AnimatePresence mode="wait">
@@ -95,7 +95,7 @@ const Hero = () => {
             >
               <NavLink
                 to={slide.ctaLink}
-                className="px-6 py-3 bg-red-600 text-white text-lg font-semibold rounded-md shadow-lg hover:bg-red-700 transition transform hover:scale-105"
+                className="px-6 py-3 bg-[#C6A75E] text-gray-900 text-lg font-semibold shadow-lg hover:bg-gray-300 transition transform hover:scale-105"
               >
                 {slide.ctaText}
               </NavLink>
@@ -127,7 +127,7 @@ const Hero = () => {
             onClick={() => setCurrent(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
               current === index
-                ? "bg-red-600 scale-125"
+                ? "bg-[#C6A75E] scale-125"
                 : "bg-gray-400"
             }`}
           />
