@@ -1,54 +1,37 @@
-import { motion } from "framer-motion";
+
+import { useEffect,useState } from 'react'
+import JobCard from '../components/careers/JobCard'
+import TaskModal from '../components/careers/TaskModal'
+import ApplicationModal from '../components/careers/ApplicationModal'
 
 const Careers = () => {
+  const [jobs,setJobs] = useState([]);
+  const [selectedJob,setSelectedJob] = useState(null);
+
+  useEffect(() => {
+    // Fetch jobs from API
+    fetch('/api/jobs')
+      .then(response => response.json())
+      .then(data => setJobs(data))
+      .catch(error => console.error('Error fetching jobs:', error));
+  }, []);
   return (
-    <div className="min-h-screen bg-white">
-
-      {/* Hero */}
-      <div className="bg-gray-900 text-white py-32 text-center">
-        <h1 className="text-5xl font-serif font-bold mb-4">
-          Join Our Legal Excellence
-        </h1>
-        <p className="text-gray-300 max-w-2xl mx-auto">
-          We seek professionals who value integrity, precision, and excellence.
-        </p>
+    <div className='min-h-screen bg-gray-50'>
+      <div className='bg-gray-900 text-white py-24 text-center'>
+        <h1 className='text-4xl font-bold mb-4'>Join Our Team</h1>
+        <p className='text-lg text-gray-300'>Explore exciting career opportunities with us.</p>
       </div>
-
-      {/* Open Positions */}
-      <div className="max-w-6xl mx-auto py-20 px-6">
-        <h2 className="text-3xl font-serif mb-10">Open Positions</h2>
-
-        <div className="space-y-6">
-          <JobCard
-            title="Corporate Associate"
-            location="Nairobi"
-          />
-          <JobCard
-            title="Litigation Lawyer"
-            location="Mombasa"
-          />
-        </div>
+      <div className='max-w-6xl mx-auto py-16 px-6 space-y-6'>
+        {jobs.map(job => (
+          <JobCard key={job.id} job={job} onSelect={() => setSelectedJob(job)} />
+        ))}
       </div>
+      {selectedJob && (
+        <ApplicationModal job={selectedJob} onClose={() => setSelectedJob(null)} />
+      )}
+      
     </div>
-  );
-};
+  )
+}
 
-const JobCard = ({ title, location }) => {
-  return (
-    <motion.div
-      whileHover={{ scale: 1.02 }}
-      className="border border-gray-200 rounded-2xl p-8 flex justify-between items-center shadow-sm hover:shadow-lg transition"
-    >
-      <div>
-        <h3 className="text-xl font-semibold">{title}</h3>
-        <p className="text-gray-500">{location}</p>
-      </div>
-
-      <button className="px-6 py-3 bg-yellow-500 text-gray-900 rounded-xl font-semibold hover:bg-yellow-400 transition">
-        Apply Now
-      </button>
-    </motion.div>
-  );
-};
-
-export default Careers;
+export default Careers

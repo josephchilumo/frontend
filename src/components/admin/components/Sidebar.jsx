@@ -15,6 +15,7 @@ const Sidebar = () => {
     { name: "Locations", icon: BuildingOfficeIcon, path: "/admin/locations" },
     { name: "Users", icon: ClipboardDocumentListIcon, path: "/admin/users" },
     { name: "Consultations", icon: ClipboardDocumentListIcon, path: "/admin/consultations" },
+    { name: "HR", icon: ClipboardDocumentListIcon, path: "/admin/hr" },
   ];
 
   return (
