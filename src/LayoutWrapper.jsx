@@ -10,7 +10,7 @@ import Servicepage from "./pages/Servicepage";
 import Publications from "./pages/Publications";
 import PublicationDetails from "./pages/PublicationDetails";
 import Team from "./pages/Team";
-import ContactPage from "./pages/Contactpage";
+import ContactPage from "./pages/ContactPage";
 import Careers from "./pages/Careers";
 
 // Staff/Admin pages
